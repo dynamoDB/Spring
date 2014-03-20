@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans >
+	<bean 
+		id="myfriend"
+		class="com.stateStreet.service.FriendJP"	
+		>
+	</bean>
+	<bean 
+		id="myfriend2"
+		class="com.stateStreet.service.FriendZH"	
+		>
+	</bean>
+	<bean
+	    id="mother"
+	    class="com.stateStreet.service.MotherImpl"
+		>
+		<property name="friend" ref="myfriend">
+		</property>
+	</bean>
+	
+		<bean
+	    id="mother1"
+	    class="com.stateStreet.service.MotherImpl1"
+		>
+		<constructor-arg index="0" ref="myfriend2"></constructor-arg>
+	</bean>
+	
+	<bean id="message" 
+		class="com.stateStreet.service.MessageBean"
+		>
+		<property name="dir">
+			<value>e:\\images</value>
+		</property>
+		<property name="size">
+			<value>1024</value>
+		</property>
+		<property name="date">
+			<value>2013-11-13</value>
+		</property>
+		<property name="list">
+			<list>
+				<value>张三</value>
+				<value>李四</value>
+				<value>王五</value>
+			</list>
+		</property>
+		
+		<property name="cities">
+			<set>
+				<value>上海</value>
+				<value>北京</value>
+				<value>杭州</value>
+			</set>
+		</property>
+		
+		<property name="books">
+			<map>
+				<entry key="ISBN001" value="java语言技术"></entry>
+				<entry key="ISBN002" value="java深入解析"></entry>
+			</map>
+		</property>
+		
+		<property name="properties">
+			<props>
+				<prop key="userName">root</prop>
+				<prop key="password">1234</prop>
+				<prop key="driverClass">jdbc.com.mysql.driver</prop>
+			</props>
+		</property>
+	</bean>
+</beans>
